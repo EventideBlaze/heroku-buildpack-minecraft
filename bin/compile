@@ -79,7 +79,7 @@ TRAVELING_RUBY_URL="https://github.com/phusion/traveling-ruby/releases/download/
 
 mkdir -p $CACHE_DIR
 if [ ! -f "$CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tgz" ]; then
-  curl -L --silent -fail $TRAVELING_RUBY_URL -o $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tgz
+  curl -L --silent -fail $TRAVELING_RUBY_URL -o $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tar.gz
 fi
 
 mkdir -p $BUILD_DIR/ruby
