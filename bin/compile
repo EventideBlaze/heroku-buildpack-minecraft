@@ -87,7 +87,7 @@ echo "$CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tar.gz"
 file $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tar.gz 2>&1
 
 mkdir -p $BUILD_DIR/ruby
-tar -xvf $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tar.gz -C $BUILD_DIR/ruby --strip-components=1
+tar -xvzf $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tar.gz -C $BUILD_DIR/ruby --strip-components=1
 
 cat << EOF > $BUILD_DIR/.profile.d/ruby.sh
 export PATH="\$HOME/ruby/bin:\$PATH"
