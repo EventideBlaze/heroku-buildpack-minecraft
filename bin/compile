@@ -79,12 +79,11 @@ TRAVELING_RUBY_URL="https://github.com/phusion/traveling-ruby/releases/download/
 
 mkdir -p $CACHE_DIR
 if [ ! -f "$CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tgz" ]; then
-  curl -L -fail $TRAVELING_RUBY_URL -o $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tgz
+  curl -L --silent -fail $TRAVELING_RUBY_URL -o $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tgz
 fi
 
 mkdir -p $BUILD_DIR/ruby
-tar -xzf $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tgz -C
-$BUILD_DIR/ruby --strip-components=1
+tar -xzf $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tgz -C $BUILD_DIR/ruby --strip-components=1
 
 cat << EOF > $BUILD_DIR/.profile.d/ruby.sh
 export PATH="\$HOME/ruby/bin:\$PATH"
