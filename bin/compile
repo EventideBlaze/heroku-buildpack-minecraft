@@ -80,6 +80,7 @@ TRAVELING_RUBY_URL="https://github.com/phusion/traveling-ruby/releases/download/
 mkdir -p $CACHE_DIR
 if [ ! -f "$CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tar.gz" ]; then
   curl -L --silent -fail $TRAVELING_RUBY_URL -o $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tar.gz
+  echo "$CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tar.gz"
   file $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tar.gz 2>&1
 fi
 
