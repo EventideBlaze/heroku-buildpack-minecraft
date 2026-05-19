@@ -78,7 +78,7 @@ RUBY_VERSION="2.4.10"
 TRAVELING_RUBY_URL="https://github.com/phusion/traveling-ruby/releases/download/rel-20210206/traveling-ruby-20210206-2.4.10-linux-x86_64.tar.gz"
 
 mkdir -p $CACHE_DIR
-if [ ! -f "$CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tgz" ]; then
+if [ ! -f "$CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tar.gz" ]; then
   curl -L --silent -fail $TRAVELING_RUBY_URL -o $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tar.gz
 fi
 
