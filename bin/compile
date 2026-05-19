@@ -57,12 +57,8 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
 done
 
 echo -n "-----> Installing ngrok... "
-curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
-  | tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null \
-  && echo "deb https://ngrok-agent.s3.amazonaws.com bookworm main" \
-  | tee /etc/apt/sources.list.d/ngrok.list \
-  && apt update \
-  && apt install ngrok
+curl --silent -o ngrok.tgz -L "https://bin.ngrok.com/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz" | indent
+tar -xvzf ngrok.tgz -C $BUILD_DIR/bin > /dev/null 2>&1
 ngrok version
 echo "done"
 
