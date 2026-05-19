@@ -74,8 +74,8 @@ mv minecraft.jar $BUILD_DIR/minecraft.jar
 echo "done"
 
 echo -n "-----> Installing Ruby... "
-RUBY_VERSION="3.3.0"
-TRAVELING_RUBY_URL="https://d6r77u77i8t5v.cloudfront.net/releases/traveling-ruby-${RUBY_VERSION}-linux-x86_64.tar.gz"
+RUBY_VERSION="2.4.10"
+TRAVELING_RUBY_URL="https://github.com/phusion/traveling-ruby/releases/download/rel-20210206/traveling-ruby-20210206-2.4.10-linux-x86_64.tar.gz"
 
 mkdir -p $CACHE_DIR
 if [ ! -f "$CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tgz" ]; then
