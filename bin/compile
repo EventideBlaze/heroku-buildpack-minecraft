@@ -59,7 +59,6 @@ done
 echo -n "-----> Installing ngrok... "
 curl --silent -o ngrok.tgz -L "https://bin.ngrok.com/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz" | indent
 tar -xvzf ngrok.tgz -C $BUILD_DIR/bin > /dev/null 2>&1
-ngrok version
 echo "done"
 
 minecraft_version=${MINECRAFT_VERSION:-"1.18.1"}
