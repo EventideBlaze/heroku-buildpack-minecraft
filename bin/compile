@@ -73,6 +73,29 @@ curl -o minecraft.jar -s -L $minecraft_url
 mv minecraft.jar $BUILD_DIR/minecraft.jar
 echo "done"
 
+echo -n "-----> Installing Ruby... "
+RUBY_VERSION="3.3.0"
+TRAVELING_RUBY_URL="https://d6r77u77i8t5v.cloudfront.net/releases/traveling-ruby-${RUBY_VERSION}-linux-x86_64.tar.gz"
+
+mkdir -p $CACHE_DIR
+if [ ! -f "$CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tgz" ]; then
+  curl -L --silent --fail $TRAVELING_RUBY_URL -o $CACHE_DIR/traveling-
+ruby-${RUBY_VERSION}.tgz
+fi
+
+mkdir -p $BUILD_DIR/ruby
+tar -xzf $CACHE_DIR/traveling-ruby-${RUBY_VERSION}.tgz -C
+$BUILD_DIR/ruby --strip-components=1
+
+cat << EOF > $BUILD_DIR/.profile.d/ruby.sh
+export PATH="\$HOME/ruby/bin:\$PATH"
+export GEM_HOME="\$HOME/.gem"
+export GEM_PATH="\$HOME/.gem"
+EOF
+
+chmod +x $BUILD_DIR/.profile.d/ruby.sh
+echo "done"
+
 if [ -n "${MINECRAFT_EULA:-""}" ]; then
   echo -n "-----> Accepting Minecraft EULA... "
   echo "eula=true" >> $BUILD_DIR/eula.txt
